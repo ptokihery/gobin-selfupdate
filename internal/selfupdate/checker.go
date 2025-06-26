@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/ptokihery/gobin-selfupdate/internal/updater"
+	"github.com/ptokihery/gobin-seltupdate/internal/updater"
 )
 
 type Checker struct {

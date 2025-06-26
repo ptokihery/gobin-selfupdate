@@ -3,7 +3,7 @@ package config
 import (
 	"embed"
 
-	internal "github.com/ptokihery/gobin-selfupdate/internal/config"
+	internal "github.com/ptokihery/gobin-seltupdate/internal/config"
 )
 
 type Config = internal.Config
