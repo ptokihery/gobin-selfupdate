@@ -16,6 +16,7 @@ type Config struct {
 	ManifestKey string `json:"manifest_key"`
 	ManifestURL string `json:"manifest_url"`
 	UseS3       bool   `json:"use_s3"`
+	Interval       bool   `json:"update_interval_minutes"`
 }
 
 func LoadEncryptedConfig(fs embed.FS, fileName string, key []byte, out any) error {
