@@ -1,12 +1,10 @@
 package config
 
 import (
-	"embed"
+	"encoding/hex"
 	"encoding/json"
+	"errors"
 )
-
-
-
 
 type Config struct {
 	AWSRegion   string `json:"aws_region"`
@@ -16,19 +14,23 @@ type Config struct {
 	ManifestKey string `json:"manifest_key"`
 	ManifestURL string `json:"manifest_url"`
 	UseS3       bool   `json:"use_s3"`
-	Interval       bool   `json:"update_interval_minutes"`
+	Interval       int   `json:"update_interval_minutes"`
 }
 
-func LoadEncryptedConfig(fs embed.FS, fileName string, key []byte, out any) error {
-	data, err := fs.ReadFile(fileName)
+
+func LoadEncryptedConfig(data []byte, keyHex string, cfg interface{}) error {
+	key, err := hex.DecodeString(keyHex)
+	if err != nil {
+		return errors.New("invalid hex key")
+	}
+	if len(key) != 32 {
+		return errors.New("key must be 32 bytes")
+	}
+
+	plaintext, err := decryptAES(data, key)
 	if err != nil {
 		return err
 	}
 
-	decrypted, err := decryptAES(data, key)
-	if err != nil {
-		return err
-	}
-
-	return json.Unmarshal(decrypted, out)
+	return json.Unmarshal(plaintext, cfg)
 }
