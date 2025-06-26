@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	internalConfig "github.com/ptokihery/gobin-seltupdate/internal/config"
-	internalSelfupdate "github.com/ptokihery/gobin-seltupdate/internal/selfupdate"
-	internalUpdater "github.com/ptokihery/gobin-seltupdate/internal/updater"
+	internalConfig "github.com/ptokihery/gobin-selfupdate/internal/config"
+	internalSelfupdate "github.com/ptokihery/gobin-selfupdate/internal/selfupdate"
+	internalUpdater "github.com/ptokihery/gobin-selfupdate/internal/updater"
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/credentials"

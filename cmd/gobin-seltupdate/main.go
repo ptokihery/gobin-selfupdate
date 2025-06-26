@@ -9,9 +9,9 @@ import (
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/credentials"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
-	configs "github.com/ptokihery/gobin-seltupdate/internal/config"
-	"github.com/ptokihery/gobin-seltupdate/internal/selfupdate"
-	"github.com/ptokihery/gobin-seltupdate/internal/updater"
+	configs "github.com/ptokihery/gobin-selfupdate/internal/config"
+	"github.com/ptokihery/gobin-selfupdate/internal/selfupdate"
+	"github.com/ptokihery/gobin-selfupdate/internal/updater"
 )
 
 type Config struct {

@@ -1,4 +1,4 @@
-module github.com/ptokihery/gobin-seltupdate
+module github.com/ptokihery/gobin-selfupdate
 
 go 1.24.0
 
